@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoCreate Wake Lock demo</title>
+</head>
+<body>
+    <main>
+        <h1>Keep the screen awake</h1>
+        <p>Request and release a screen wake lock from user gestures.</p>
+        <button id="request-lock" type="button">Keep screen awake</button>
+        <button id="release-lock" type="button">Release wake lock</button>
+        <output id="status" aria-live="polite"></output>
+        <script type="module">
+            import WakeLock from "../src/index.js";
+            document.querySelector("#request-lock").addEventListener("click", async () => {
+                try { await WakeLock.request(); document.querySelector("#status").textContent = "Wake lock active"; }
+                catch (error) { document.querySelector("#status").textContent = error.message; }
+            });
+            document.querySelector("#release-lock").addEventListener("click", async () => {
+                await WakeLock.release(); document.querySelector("#status").textContent = "Wake lock released";
+            });
+        </script>
+    </main>
+</body>
+</html>
