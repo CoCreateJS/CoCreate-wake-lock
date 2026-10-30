@@ -12,6 +12,44 @@
   "publishConfig": {
     "access": "public"
   },
+  "cocreate": {
+    "environment": [
+      "client"
+    ],
+    "interface": {
+      "schemaVersion": 1,
+      "summary": "Helpers for the browser Screen Wake Lock API.",
+      "source": "src/index.js",
+      "declarative": {
+        "selectors": [
+          "[wake-lock]"
+        ],
+        "attributes": [
+          {
+            "name": "actions"
+          },
+          {
+            "name": "wake-lock"
+          },
+          {
+            "name": "wake-lock-type"
+          }
+        ],
+        "actions": [
+          {
+            "name": "wakeLock"
+          }
+        ]
+      },
+      "api": {
+        "exports": [
+          "isSupported",
+          "release",
+          "request"
+        ]
+      }
+    }
+  },
   "scripts": {
     "start": "webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",
