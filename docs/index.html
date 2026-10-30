@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CoCreate Wake Lock | CoCreateJS</title>
-    <meta name="description" content="Helpers for the browser Screen Wake Lock API.">
+    <meta name="description" content="Declarative and programmatic access to the browser Screen Wake Lock API.">
 </head>
 <body>
     <main>
         <h1>CoCreate Wake Lock</h1>
-        <p>Helpers for the browser Screen Wake Lock API.</p>
-        <p>Request and release a screen wake lock from user gestures.</p>
-        <p>See the demo for a minimal user-gesture example.</p>
+        <p>Use <code>wake-lock</code> as a click toggle, or invoke the request and release methods through CoCreate Actions.</p>
+        <pre><code>&lt;button wake-lock="false" wake-lock-type="screen"&gt;Keep screen awake&lt;/button&gt;
+&lt;button actions="wakeLock.request(screen)"&gt;Request&lt;/button&gt;
+&lt;button actions="wakeLock.release"&gt;Release&lt;/button&gt;</code></pre>
+        <p>When no type is supplied, JavaScript defaults to <code>"screen"</code>. The native sentinel is returned by the JavaScript API and its release event keeps the element state synchronized.</p>
+        <p>The current Screen Wake Lock API defines only the <code>screen</code> type. It requires a secure, visible page and can be released by the browser or operating system.</p>
+        <p><a href="/docs/wake-lock/demo">Open the demo</a></p>
     </main>
 </body>
 </html>

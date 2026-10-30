@@ -28,11 +28,16 @@
   },
   "homepage": "https://cocreate.app/docs/wake-lock",
   "main": "./src/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@cocreate/actions": "^1.27.0",
+    "@cocreate/observer": "^1.25.0"
+  },
   "devDependencies": {
     "@cocreate/webpack": "^1.9.0"
   },
   "allowScripts": {
+    "@cocreate/actions@1.27.0": true,
+    "@cocreate/observer@1.25.0": true,
     "@cocreate/webpack@1.9.0": true
   }
 }

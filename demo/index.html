@@ -4,24 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CoCreate Wake Lock demo</title>
+    <style>
+        [wake-lock="true"] .wake-lock-active,
+        [wake-lock="false"] .wake-lock-inactive {
+            display: inline;
+        }
+
+        .wake-lock-active,
+        .wake-lock-inactive {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <main>
         <h1>Keep the screen awake</h1>
-        <p>Request and release a screen wake lock from user gestures.</p>
-        <button id="request-lock" type="button">Keep screen awake</button>
-        <button id="release-lock" type="button">Release wake lock</button>
-        <output id="status" aria-live="polite"></output>
-        <script type="module">
-            import WakeLock from "../src/index.js";
-            document.querySelector("#request-lock").addEventListener("click", async () => {
-                try { await WakeLock.request(); document.querySelector("#status").textContent = "Wake lock active"; }
-                catch (error) { document.querySelector("#status").textContent = error.message; }
-            });
-            document.querySelector("#release-lock").addEventListener("click", async () => {
-                await WakeLock.release(); document.querySelector("#status").textContent = "Wake lock released";
-            });
-        </script>
+        <p>The wake-lock attribute toggles its state. The browser may release it when the page becomes hidden or the device needs to save power.</p>
+
+        <section>
+            <h2>Attribute toggle</h2>
+            <button type="button" wake-lock="false" wake-lock-type="screen">
+                Toggle screen wake lock
+                <span class="wake-lock-active">(active)</span>
+                <span class="wake-lock-inactive">(inactive)</span>
+            </button>
+        </section>
+
+        <section>
+            <h2>Actions</h2>
+            <button type="button" actions="wakeLock.request">Request default screen wake lock</button>
+            <button type="button" actions="wakeLock.release">Release latest wake lock</button>
+        </section>
     </main>
+    <script src="../dist/CoCreate-wake-lock.js"></script>
 </body>
 </html>
