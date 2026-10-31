@@ -11,7 +11,7 @@ module.exports = {
                 path: "/docs/wake-lock",
                 pathname: "/docs/wake-lock/index.html",
                 src: "{{./docs/index.html}}",
-                host: ["cocreate.app", "general.cocreate.app"],
+                host: ["CoCreateJS.com", "general.CoCreateJS.com"],
                 directory: "wake-lock",
                 "content-type": "{{content-type}}",
                 public: "true"

@@ -64,7 +64,7 @@
   "bugs": {
     "url": "https://github.com/CoCreateJS/CoCreate-wake-lock/issues"
   },
-  "homepage": "https://cocreate.app/docs/wake-lock",
+  "homepage": "https://CoCreateJS.com/docs/wake-lock",
   "main": "./src/index.js",
   "dependencies": {
     "@cocreate/actions": "^1.27.0",
