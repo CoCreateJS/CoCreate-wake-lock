@@ -9,11 +9,21 @@ const activeLocks = new Set();
 const handledReleases = new WeakSet();
 let activeLock = null;
 
+/**
+ *
+ * @public
+ * @environment client
+ */
 function isSupported() {
 	return typeof navigator !== "undefined" &&
 		typeof navigator.wakeLock?.request === "function";
 }
 
+/**
+ *
+ * @public
+ * @environment client
+ */
 async function request(type = "screen", element) {
 	if (!isSupported())
 		throw new Error("The Screen Wake Lock API is not supported in this browser.");
@@ -39,6 +49,11 @@ async function request(type = "screen", element) {
 	return lock;
 }
 
+/**
+ *
+ * @public
+ * @environment client
+ */
 async function release(target) {
 	const lock = getLock(target);
 	if (!lock || lock.released) {
@@ -167,3 +182,66 @@ init();
 
 export { isSupported, request, release };
 export default { isSupported, request, release };
+
+/**
+ *
+ * @name actions
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name wake-lock
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name wake-lock-type
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ * Helpers for the browser Screen Wake Lock API.
+ *
+ * @module wake-lock
+ * @environment client
+ */
+
+/**
+ * Declarative selectors recognized by this module.
+ *
+ * @name declarative-selectors
+ * @kind member
+ * @selectors
+ * @environment client
+ * @example
+ * ```json
+ * [
+ *   "[wake-lock]"
+ * ]
+ * ```
+ */
+
+/**
+ * Declarative actions supported or registered by this module.
+ *
+ * @name declarative-actions
+ * @kind member
+ * @actions
+ * @environment client
+ * @example
+ * ```json
+ * [
+ *   {
+ *     "name": "wakeLock"
+ *   }
+ * ]
+ * ```
+ */
